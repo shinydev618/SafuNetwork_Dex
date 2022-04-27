@@ -7,7 +7,7 @@ import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
 
 interface PageHeaderProps {
-  title: ReactNode
+  // title: ReactNode
   description?: ReactNode
   children?: ReactNode
 }
@@ -25,7 +25,8 @@ const Icon = styled.img`
   height: 32px;
 `
 
-const PageHeader = ({ title, description, children }: PageHeaderProps) => {
+// const PageHeader = ({ title, description, children }: PageHeaderProps) => {
+  const PageHeader = ({ description, children }: PageHeaderProps) => {
   const [onPresentSettings] = useModal(<SettingsModal />)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
 

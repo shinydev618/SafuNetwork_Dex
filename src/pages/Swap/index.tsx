@@ -32,7 +32,7 @@ import { maxAmountSpend } from 'utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from 'utils/prices'
 import Loader from 'components/Loader'
 // import { TranslateString } from 'utils/translateTextHelpers'
-import PageHeader from 'components/PageHeader'
+// import PageHeader from 'components/PageHeader'
 // import ConnectWalletButton from 'components/ConnectWalletButton'
 import ConnectWalletButtonSwap from 'components/ConnectWalletButtonSwap'
 import reverse from 'img/reverse.svg'
@@ -181,7 +181,7 @@ const Swap: React.FC<IProps> = ({ isLanding }) => {
   }, [approval, approvalSubmitted])
 
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
-  const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
+  // const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
 
   // the callback to execute the swap
   const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(
@@ -315,13 +315,13 @@ const Swap: React.FC<IProps> = ({ isLanding }) => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title="Swap" />
+          {/* <PageHeader title="Swap" /> */}
           <CardBody>
             <AutoColumn gap="md">
               <CurrencyInputPanel
                 label={`From: ${currencies[Field.INPUT]?.symbol}`}
                 value={formattedAmounts[Field.INPUT]}
-                showMaxButton={!atMaxAmountInput}
+                // showMaxButton={!atMaxAmountInput}
                 currency={currencies[Field.INPUT]}
                 onUserInput={handleTypeInput}
                 onMax={handleMaxInput}
@@ -357,7 +357,7 @@ const Swap: React.FC<IProps> = ({ isLanding }) => {
                 value={formattedAmounts[Field.OUTPUT]}
                 onUserInput={handleTypeOutput}
                 label={`To: ${currencies[Field.OUTPUT]?.symbol ?? '?'}`}
-                showMaxButton={false}
+                // showMaxButton={false}
                 currency={currencies[Field.OUTPUT]}
                 onCurrencySelect={handleOutputSelect}
                 otherCurrency={currencies[Field.INPUT]}

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from '@spacegrimedex-libs'
-import { Button, ChevronDownIcon, Text } from '@spacegrimedex-uikit'
+import { Text } from '@spacegrimedex-uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import arDown from 'img/arDown.svg'
@@ -84,7 +84,7 @@ interface CurrencyInputPanelProps {
   value: string
   onUserInput: (value: string) => void
   onMax?: () => void
-  showMaxButton: boolean
+  // showMaxButton: boolean
   label?: string
   onCurrencySelect?: (currency: Currency) => void
   currency?: Currency | null
@@ -103,7 +103,7 @@ export default function CurrencyInputPanel({
   value,
   onUserInput,
   onMax,
-  showMaxButton,
+  // showMaxButton,
   label = TranslateString(132, 'Input'),
   onCurrencySelect,
   currency,

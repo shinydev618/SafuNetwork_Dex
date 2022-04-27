@@ -15,7 +15,7 @@ import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import langSrc from '../constants/localisation/translate/index'
-import Landing from './Landing'
+// import Landing from './Landing'
 
 import Menu from '../components/Menu'
 

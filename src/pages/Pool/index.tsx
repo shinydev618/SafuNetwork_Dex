@@ -59,7 +59,7 @@ export default function Pool() {
       <CardNav activeIndex={1} />
       <AppBody>
         <PageHeader
-          title={TranslateString(262, 'Liquidity')}
+          // title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
         >
           <Button id="join-pool-button" as={Link} to="/add/ETH">
