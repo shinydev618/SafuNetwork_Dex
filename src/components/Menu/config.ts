@@ -1,74 +1,147 @@
 import { MenuEntry } from '@spacegrimedex-uikit'
 
 const config: MenuEntry[] = [
+  // {
+  //   label: "Home",
+  //   icon: "HomeIcon",
+  //   href: "/",
+  // },
+  // {
+  //   label: "Trade",
+  //   icon: "TradeIcon",
+  //   items: [
+  //     {
+  //       label: "Exchange",
+  //       href: "https://exchange.pancakeswap.finance",
+  //     },
+  //     {
+  //       label: "Liquidity",
+  //       href: "https://exchange.pancakeswap.finance/#/pool",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Earning",
+  //   icon: "EarningIcon",
+  //   href: "/farms",
+  // },
+  // {
+  //   label: "NFT Marketplace",
+  //   icon: "NFTIcon",
+  //   href: "/syrup",
+  // },
+  // {
+  //   label: "SpaceGrime Gallery",
+  //   icon: "GalleryIcon",
+  //   href: "/lottery",
+  // },
+  // {
+  //   label: "Launchpad",
+  //   icon: "LaunchpadIcon",
+  //   href: "/nft",
+  // },
+  // {
+  //   label: "Gamification",
+  //   icon: "GamificationIcon",
+  //   href: "/nft",
+  // },
+  // {
+  //   label: "ETH2.0",
+  //   icon: "ETHIcon",
+  //   href: "/nft",
+  // },
+  // {
+  //   label: "Info",
+  //   icon: "InfoIcon",
+  //   href: "/nft",
+  // },
+  // {
+  //   label: "Contact",
+  //   icon: "ContactIcon",
+  //   items: [
+  //     {
+  //       label: "Twitter",
+  //       href: "/teams",
+  //     },
+  //     {
+  //       label: "Telegram",
+  //       href: "/",
+  //     },
+  //   ],
+  //   calloutClass: "rainbow",
+  // },
+  
   {
-    label: "Home",
-    icon: "HomeIcon",
-    href: "/",
-  },
-  {
-    label: "Trade",
+    label: "SWAP",
     icon: "TradeIcon",
-    items: [
-      {
-        label: "Exchange",
-        href: "https://exchange.pancakeswap.finance",
-      },
-      {
-        label: "Liquidity",
-        href: "https://exchange.pancakeswap.finance/#/pool",
-      },
-    ],
+    href: "/swap",
   },
   {
-    label: "Earning",
+    label: "STAKING",
+    icon: "HomeIcon",
+    href: "/staking",
+  },
+  {
+    label: "POOL",
     icon: "EarningIcon",
-    href: "/farms",
+    href: "/pool",
+  },
+  {
+    label: "Farm",
+    icon: "GalleryIcon",
+    href: "/farm",
+  },
+  {
+    label: "LENDING",
+    icon: "LaunchpadIcon",
+    href: "/lending",
+  },
+  {
+    label: "SAFU WALLET",
+    icon: "GamificationIcon",
+    href: "/safuwallet",
+  },
+  
+  {
+    label: "SAFU PAY",
+    icon: "InfoIcon",
+    href: "/safupay",
+  },
+  {
+    label: "DICE GAME",
+    icon: "NFTIcon",
+    href: "/dicegame",
   },
   {
     label: "NFT Marketplace",
     icon: "NFTIcon",
-    href: "/syrup",
+    href: "/nftmarketplace",
   },
   {
-    label: "SpaceGrime Gallery",
-    icon: "GalleryIcon",
-    href: "/lottery",
+    label: "ITSO",
+    icon: "NFTIcon",
+    href: "/itso",
   },
   {
-    label: "Launchpad",
-    icon: "LaunchpadIcon",
-    href: "/nft",
+    label: "GOVERNANCE",
+    icon: "NFTIcon",
+    href: "/governance",
   },
   {
-    label: "Gamification",
-    icon: "GamificationIcon",
-    href: "/nft",
+    label: "METAVERSE",
+    icon: "NFTIcon",
+    href: "/metaverse",
   },
   {
-    label: "ETH2.0",
-    icon: "ETHIcon",
-    href: "/nft",
+    label: "LOGIN",
+    icon: "NFTIcon",
+    href: "/login",
   },
   {
-    label: "Info",
-    icon: "InfoIcon",
-    href: "/nft",
+    label: "REGISTER",
+    icon: "NFTIcon",
+    href: "/register",
   },
-  {
-    label: "Contact",
-    icon: "ContactIcon",
-    items: [
-      {
-        label: "Twitter",
-        href: "/teams",
-      },
-      {
-        label: "Telegram",
-        href: "/",
-      },
-    ],
-    calloutClass: "rainbow",
-  },
+
 ];
 export default config

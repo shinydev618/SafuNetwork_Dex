@@ -7,17 +7,17 @@ import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from 
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import AddLiquidity from './AddLiquidity'
 import Pool from './Pool'
-// import PoolFinder from './PoolFinder'
-// import RemoveLiquidity from './RemoveLiquidity'
+import PoolFinder from './PoolFinder'
+import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
 import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import langSrc from '../constants/localisation/translate/index'
-// import Landing from './Landing'
+import Landing from './Landing'
 
-// import Menu from '../components/Menu'
+import Menu from '../components/Menu'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -108,7 +108,7 @@ export default function App() {
                   <Route exact strict path="/">
                     <Redirect to="/swap" />
                   </Route>
-                  <BodyWrapper>
+                  {/* <BodyWrapper>
                     <Route exact strict path="/swap" component={Swap} />
                     <Route exact strict path="/pool" component={Pool} />
                     <Route exact path="/add" component={AddLiquidity} />
@@ -117,24 +117,21 @@ export default function App() {
                     <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
 
                     <Route component={RedirectPathToSwapOnly} />
-                  </BodyWrapper>
+                  </BodyWrapper> */}
 
-                  {/* <Menu>
+                  <Menu>
                     <BodyWrapper>
                       <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/find" component={PoolFinder} />
                       <Route exact strict path="/pool" component={Pool} />
                       <Route exact path="/add" component={AddLiquidity} />
                       <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
-
-
                       <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
                       <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
                       <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
-
                       <Route component={RedirectPathToSwapOnly} />
                     </BodyWrapper>
-                  </Menu> */}
+                  </Menu>
                 </Switch>
               </Web3ReactManager>
               <Marginer />
