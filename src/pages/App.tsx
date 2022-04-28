@@ -103,7 +103,19 @@ export default function App() {
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Popups />
+              {/* <div
+                  style={{
+                    display: 'flex',
+                    width: '350px',
+                    height: '100%',
+                    position: 'fixed',
+                    backgroundColor: 'black',
+                  }}
+                >
+                  123
+                </div> */}
               <Web3ReactManager>
+                
                 <Switch>
                   <Route exact strict path="/">
                     <Redirect to="/swap" />
@@ -132,6 +144,18 @@ export default function App() {
                       <Route component={RedirectPathToSwapOnly} />
                     </BodyWrapper>
                   </Menu>
+
+                  <BodyWrapper>
+                    <Route exact strict path="/swap" component={Swap} />
+                    <Route exact strict path="/find" component={PoolFinder} />
+                    <Route exact strict path="/pool" component={Pool} />
+                    <Route exact path="/add" component={AddLiquidity} />
+                    <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+                    <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+                    <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+                    <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
+                    <Route component={RedirectPathToSwapOnly} />
+                  </BodyWrapper>
                 </Switch>
               </Web3ReactManager>
               <Marginer />
