@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
-import { Box, Modal } from '@material-ui/core'
+import { Modal } from '@material-ui/core'
 import { RiExchangeDollarFill, RiLoginBoxLine } from 'react-icons/ri'
 import { FaStaylinked, FaListUl } from 'react-icons/fa'
 import { MdSaveAlt, MdInput, MdOutlineMicrowave, MdAccountBalanceWallet, MdShop } from 'react-icons/md'
