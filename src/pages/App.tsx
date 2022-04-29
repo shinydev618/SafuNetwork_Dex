@@ -1,5 +1,12 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { Box, Modal } from '@material-ui/core'
+import { RiExchangeDollarFill, RiLoginBoxLine } from 'react-icons/ri'
+import { FaStaylinked, FaListUl } from 'react-icons/fa'
+import { MdSaveAlt, MdInput, MdOutlineMicrowave, MdAccountBalanceWallet, MdShop } from 'react-icons/md'
+import { GiFarmTractor } from 'react-icons/gi'
+import { SiSamsungpay, SiHiveBlockchain, SiVirtualbox } from 'react-icons/si'
+import { BsDice6, BsPencilSquare } from 'react-icons/bs'
 import styled from 'styled-components'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -15,9 +22,20 @@ import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import langSrc from '../constants/localisation/translate/index'
+
 // import Landing from './Landing'
 
 // import Menu from '../components/Menu'
+import Mark_Logo from '../img/safu_logo_text.png'
+// import Icon_Menu from '../img/menu_icon.png'
+
+export const CustomBackdrop = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: white;
+  opacity: 0.6;
+`
 
 const AppWrapper = styled.div`
   display: flex;
@@ -31,7 +49,7 @@ const BodyWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 32px 16px;
-  padding-top: 64px;
+  /* padding-top: 10%; */
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -49,7 +67,7 @@ const BodyWrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center 420px, 10% 230px, 90% 230px;
     background-size: contain, 266px, 266px;
-    min-height: 90vh;
+    /* min-height: 100vh; */
   }
 `
 
@@ -57,10 +75,115 @@ const BodyWrapper = styled.div`
 //   margin-top: 5rem;
 // `
 
+const StyledComponent = styled.div`
+  display: flex;
+  position: relative;
+  width: 430px;
+  /* height: 100%; */
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(37 148 225);
+  @media (max-width: 900px) {
+    display: none;
+  }
+`
+const MarkImg = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+`
+
+const Collapse = styled.div`
+  display: none;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 7%;
+  color: rgb(37 148 225);
+  font-weight: 600;
+  font-size: 30px;
+  @media (max-width: 900px) {
+    display: flex;
+  }
+  &:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 35px;
+  }
+  &:out-of-range {
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 30px;
+  }
+`
+
+const LinkList = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  color: white;
+  margin-top: 30px;
+`
+const EachLink = styled.div`
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  align-items: center;
+  font-size: 1.2rem;
+  &:hover {
+    cursor: pointer;
+    color: rgb(249, 205, 128);
+    font-size: 1.3rem;
+  }
+`
+const EachLinkTxt = styled.div`
+  display: flex;
+  margin-left: 15px;
+`
+
+const ModalComponent = styled.div`
+  display: none;
+  transition: 1s;
+  position: fixed;
+  width: 280px;
+  outline: none;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(37 148 225);
+  @media (max-width: 900px) {
+    display: flex;
+  }
+`
+
+// const ContactList = styled(Box)`
+//   display: flex;
+//   position: fixed;
+//   bottom: 15px;
+//   min-width: 340px;
+//   left: 0px;
+//   justify-content: center;
+//   align-items: center;
+// `
+
+// const ContactBox = styled(Box)`
+//   display: flex;
+//   color: white;
+//   font-size: 1.5rem;
+//   &:hover {
+//     cursor: pointer;
+//     color: rgb(249, 205, 128);
+//     font-size: 1.7rem;
+//   }
+// `
+
 export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)
   const [translatedLanguage, setTranslatedLanguage] = useState<any>(undefined)
   const [translations, setTranslations] = useState<Array<any>>([])
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   const getStoredLang = (storedLangCode: string) => {
     return allLanguages.filter((language) => {
@@ -107,24 +230,102 @@ export default function App() {
                 style={{
                   display: 'flex',
                   width: '100%',
-                  height: '100%',
+                  height: '100vh',
                 }}
               >
-                <div
-                  style={{
-                    display: 'flex',
-                    width: '350px',
-                    height: '100vh',
-                    backgroundColor: '#332980',
+                <StyledComponent>
+                  <MarkImg>
+                    <img src={Mark_Logo} width="280px" alt="" />
+                  </MarkImg>
+                  {/* <MarkLetter>Olympus</MarkLetter> */}
+                  <LinkList>
+                    <EachLink>
+                      <RiExchangeDollarFill />
+                      <EachLinkTxt>SWAP</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdSaveAlt />
+                      <EachLinkTxt>STAKING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdInput />
+                      <EachLinkTxt>POOL</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <GiFarmTractor />
+                      <EachLinkTxt>FARMING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdOutlineMicrowave />
+                      <EachLinkTxt>LENDING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdAccountBalanceWallet />
+                      <EachLinkTxt>SAFU WALLET</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiSamsungpay />
+                      <EachLinkTxt>SAFU PAY</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <BsDice6 />
+                      <EachLinkTxt>DICE GAME</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdShop />
+                      <EachLinkTxt>NFT MARKETPLACE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiHiveBlockchain />
+                      <EachLinkTxt>ITSO</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <FaStaylinked />
+                      <EachLinkTxt>GOVERNANCE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiVirtualbox />
+                      <EachLinkTxt>METAVERSE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <RiLoginBoxLine />
+                      <EachLinkTxt>LOGIN</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <BsPencilSquare />
+                      <EachLinkTxt>REGISTER</EachLinkTxt>
+                    </EachLink>
+                  </LinkList>
+                  {/* <ContactList>
+                    <Box display="flex" width="100%" justifyContent="space-between">
+                      <ContactBox>
+                        <FaGithub />
+                      </ContactBox>
+                      <ContactBox>
+                        <FaMedium />
+                      </ContactBox>
+                      <ContactBox>
+                        <FaTwitter />
+                      </ContactBox>
+                      <ContactBox>
+                        <FaDiscord />
+                      </ContactBox>
+                    </Box>
+                  </ContactList> */}
+                </StyledComponent>
+                <Collapse
+                  onClick={() => {
+                    handleOpen()
                   }}
                 >
-                  123
-                </div>
+                  <FaListUl />
+                </Collapse>
                 <div
                   style={{
                     display: 'flex',
                     width: '100%',
                     justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
                   <Web3ReactManager>
@@ -182,7 +383,77 @@ export default function App() {
                   </Web3ReactManager>
                 </div>
               </div>
-
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                BackdropComponent={CustomBackdrop}
+              >
+                <ModalComponent>
+                  <MarkImg>
+                    <img src={Mark_Logo} width="230px" alt="" />
+                  </MarkImg>
+                  <LinkList>
+                    <EachLink>
+                      <RiExchangeDollarFill />
+                      <EachLinkTxt>SWAP</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdSaveAlt />
+                      <EachLinkTxt>STAKING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdInput />
+                      <EachLinkTxt>POOL</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <GiFarmTractor />
+                      <EachLinkTxt>FARMING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdOutlineMicrowave />
+                      <EachLinkTxt>LENDING</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdAccountBalanceWallet />
+                      <EachLinkTxt>SAFU WALLET</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiSamsungpay />
+                      <EachLinkTxt>SAFU PAY</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <BsDice6 />
+                      <EachLinkTxt>DICE GAME</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <MdShop />
+                      <EachLinkTxt>NFT MARKETPLACE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiHiveBlockchain />
+                      <EachLinkTxt>ITSO</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <FaStaylinked />
+                      <EachLinkTxt>GOVERNANCE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <SiVirtualbox />
+                      <EachLinkTxt>METAVERSE</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <RiLoginBoxLine />
+                      <EachLinkTxt>LOGIN</EachLinkTxt>
+                    </EachLink>
+                    <EachLink>
+                      <BsPencilSquare />
+                      <EachLinkTxt>REGISTER</EachLinkTxt>
+                    </EachLink>
+                  </LinkList>
+                </ModalComponent>
+              </Modal>
               {/* <Marginer /> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>

@@ -11,6 +11,13 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
+      "name": "SAFU NETWORK",
+      "symbol": "SAFU",
+      "address": "0x3b529e373fa083a6e4f8d199a002ac4f7074f586",
+      "chainId": 56,
+      "decimals": 18
+    },
+    {
       "name": "FastToken",
       "symbol": "FAST",
       "address": "0xfEA6218871B7851748881a4aF6bCA63Af1B769a8",
