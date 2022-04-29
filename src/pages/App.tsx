@@ -82,6 +82,8 @@ const StyledComponent = styled.div`
   /* height: 100%; */
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+
   background-color: rgb(37 148 225);
   @media (max-width: 900px) {
     display: none;
@@ -146,6 +148,8 @@ const ModalComponent = styled.div`
   transition: 1s;
   position: fixed;
   width: 280px;
+  overflow: auto;
+
   outline: none;
   height: 100%;
   flex-direction: column;
